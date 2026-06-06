@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/daniel/NetBeansProjects/demineur/src/demineur/Demineur.java</file>
+            <file>file:/home/daniel/NetBeansProjects/demineur/src/metier/Partie.java</file>
+            <file>file:/home/daniel/NetBeansProjects/demineur/src/metier/Niveau.java</file>
+            <file>file:/home/daniel/NetBeansProjects/demineur/src/metier/Miniteur.java</file>
+            <file>file:/home/daniel/NetBeansProjects/demineur/src/metier/CompteurMine.java</file>
+            <file>file:/home/daniel/NetBeansProjects/demineur/src/metier/EtatCaseEnum.java</file>
+            <file>file:/home/daniel/NetBeansProjects/demineur/src/presentation/Plateau.java</file>
+            <file>file:/home/daniel/NetBeansProjects/demineur/src/presentation/CaseUI.java</file>
+            <file>file:/home/daniel/NetBeansProjects/demineur/src/presentation/EcouteurCaseUI.java</file>
+            <file>file:/home/daniel/NetBeansProjects/demineur/src/metier/EtatJeuEnum.java</file>
+            <file>file:/home/daniel/NetBeansProjects/demineur/src/metier/Case.java</file>
+        </group>
+    </open-files>
+</project-private>
