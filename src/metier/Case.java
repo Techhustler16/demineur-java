@@ -12,16 +12,16 @@ import java.util.List;
  * @author daniel
  */
 public class Case {
-    
+
     private boolean minee = false;
     private final Partie partie;
     private EtatCaseEnum etat = EtatCaseEnum.INITIAL;
-    
-    public Case(Partie partie){
+
+    public Case(Partie partie) {
         this.partie = partie;
     }
-    
-    public void marquer(){
+
+    public void marquer() {
         switch (this.etat) {
             case EtatCaseEnum.INITIAL:
                 this.etat = EtatCaseEnum.MARQUE;
@@ -31,88 +31,87 @@ public class Case {
                 break;
         }
     }
-    
-    public void devoiler(){
+
+    public void devoiler() {
         this.partie.demarrer(this);
-        if(this.etat == EtatCaseEnum.INITIAL){
+        if (this.etat == EtatCaseEnum.INITIAL) {
             this.etat = EtatCaseEnum.DEVOILE;
-            if(this.minee){
+            if (this.minee) {
                 this.partie.terminerAvecEchec();
                 return;
             }
             this.devoilerVoisines();
         }
     }
-    
-    public boolean isDevoilee(){
+
+    public boolean isDevoilee() {
         return this.etat == EtatCaseEnum.DEVOILE;
     }
-    
-    public boolean isMarquee(){
+
+    public boolean isMarquee() {
         return this.etat == EtatCaseEnum.MARQUE;
     }
-    
-    public String getContenu(){
+
+    public String getContenu() {
         List<Case> voisines = this.getVoisines();
         int nombreMines = this.getNombresMines(voisines);
         return nombreMines == 0 ? "" : String.valueOf(nombreMines);
     }
-    
-    private void devoilerVoisines(){
+
+    private void devoilerVoisines() {
         List<Case> voisines = this.getVoisines();
         int nombreMines = this.getNombresMines(voisines);
-        if(nombreMines == 0){
-            for(Case _case: voisines){
+        if (nombreMines == 0) {
+            for (Case _case : voisines) {
                 _case.devoiler();
             }
         }
     }
-    
-    private int getNombresMines(List<Case> cases){
+
+    private int getNombresMines(List<Case> cases) {
         int nombreMines = 0;
-        for(Case _case : cases){
-            if(_case.isMinee()){
-                nombreMines ++;
+        for (Case _case : cases) {
+            if (_case.isMinee()) {
+                nombreMines++;
             }
         }
         return nombreMines;
     }
-    
-    private List<Case> getVoisines(){
+
+    private List<Case> getVoisines() {
         List<Case> voisines = new ArrayList();
         int ligne = this.getLigne();
         int colonne = this.getColonne();
-        
-        this.ajouterVoisine(voisines, ligne-1, colonne-1);
-        this.ajouterVoisine(voisines, ligne-1, colonne);
-        this.ajouterVoisine(voisines, ligne-1, colonne+1);
-        
-        this.ajouterVoisine(voisines, ligne, colonne-1);
-//        this.ajouterVoisine(voisines, ligne, colonne);
-        this.ajouterVoisine(voisines, ligne, colonne+1);
-        
-        this.ajouterVoisine(voisines, ligne+1, colonne-1);
-        this.ajouterVoisine(voisines, ligne+1, colonne);
-        this.ajouterVoisine(voisines, ligne+1, colonne+1);
-        
+
+        this.ajouterVoisine(voisines, ligne - 1, colonne - 1);
+        this.ajouterVoisine(voisines, ligne - 1, colonne);
+        this.ajouterVoisine(voisines, ligne - 1, colonne + 1);
+
+        this.ajouterVoisine(voisines, ligne, colonne - 1);
+        this.ajouterVoisine(voisines, ligne, colonne + 1);
+
+        this.ajouterVoisine(voisines, ligne + 1, colonne - 1);
+        this.ajouterVoisine(voisines, ligne + 1, colonne);
+        this.ajouterVoisine(voisines, ligne + 1, colonne + 1);
+
         return voisines;
     }
-    
-    private void ajouterVoisine (List<Case> voisines, int x, int y){
+
+    private void ajouterVoisine(List<Case> voisines, int x, int y) {
         try {
             voisines.add(this.partie.getCase(x, y));
         } catch (Exception ex) {
-            
+
         }
     }
-    
-    private int getLigne(){
+
+    private int getLigne() {
         int nombreColonnes = this.partie.getNiveau().getNombreColonnes();
         int position = this.partie.getCases().indexOf(this);
         return position / nombreColonnes;
     }
-    
-    private int getColonne(){
+
+    private int getColonne() {
         int nombreColonnes = this.partie.getNiveau().getNombreColonnes();
         int position = this.partie.getCases().indexOf(this);
         return position % nombreColonnes;
@@ -121,12 +120,12 @@ public class Case {
     public Partie getPartie() {
         return partie;
     }
-    
-    public void setMine(){
+
+    public void setMine() {
         this.minee = true;
     }
-    
-    public boolean isMinee(){
+
+    public boolean isMinee() {
         return this.minee;
     }
 
@@ -137,5 +136,5 @@ public class Case {
     public void setEtat(EtatCaseEnum etat) {
         this.etat = etat;
     }
-    
+
 }

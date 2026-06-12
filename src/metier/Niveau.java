@@ -9,28 +9,28 @@ package metier;
  * @author daniel
  */
 public class Niveau {
-    
+
     private final String libelle;
     private final int nombreLignes;
     private final int nombreColonnes;
     private final int nombreMines;
-    
-    public Niveau(){
+
+    public Niveau() {
         this("Débutant", 9, 9, 10);
     }
-    
-    public Niveau(String libelle, int nombreLignes, int nombreColonnes, int nombreMines){
+
+    public Niveau(String libelle, int nombreLignes, int nombreColonnes, int nombreMines) {
         this.libelle = libelle;
         this.nombreLignes = nombreLignes;
         this.nombreColonnes = nombreColonnes;
         this.nombreMines = nombreMines;
     }
-    
-    public int getNombreCases(){
+
+    public int getNombreCases() {
         return this.nombreLignes * this.nombreColonnes;
     }
-    
-    public String getLibelle(){
+
+    public String getLibelle() {
         return this.libelle;
     }
 
@@ -45,5 +45,5 @@ public class Niveau {
     public int getNombreMines() {
         return nombreMines;
     }
-    
+
 }

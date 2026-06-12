@@ -26,7 +26,7 @@ public class Plateau extends JFrame {
     
     public Plateau(Partie partie){
         this.partie = partie;
-        this.setSize(500, 500);
+        this.setSize(900, 900);
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());

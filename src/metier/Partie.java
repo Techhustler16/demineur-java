@@ -52,22 +52,24 @@ public class Partie {
         }
         
     }
+   
     
     public void setMines(Case caseExceptee){
         int nombreMines = this.niveau.getNombreMines();
         int nombreCases = this.niveau.getNombreCases();
-        int conteur = 0;
+        int compteur = 0;
         Random random = new Random();
-        while(conteur < nombreMines){
+        while(compteur < nombreMines){
             int position = random.nextInt(nombreCases);
             Case _case = this.cases.get(position);
             if(!_case.isMinee() && _case != caseExceptee){
                 _case.setMine();
-                conteur ++;
+                compteur ++;
             }
         }
         
     }
+   
     
     public void terminerAvecEchec(){
         this.etat = EtatJeuEnum.TERMINEE;
